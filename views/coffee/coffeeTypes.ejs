@@ -4,9 +4,13 @@
 <% coffeeTypes.forEach(function(coffee) {%>
     <div>
         <h3>
-            <%= coffee.name %>    
-            <small><%= coffee.origin %> </small>
+            <a href="/coffees/<%= coffee.id %> ">
+                <%= coffee.name %>    
+            </a>
         </h3>
+        <p>
+            <small>~<%= coffee.origin %> </small>
+        </p>
         <h4>
         </h4>
     </div>

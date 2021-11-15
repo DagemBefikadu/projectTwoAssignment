@@ -13,4 +13,14 @@ router.get('/', (req,res) => {
     })
 })
 
+router.get('/:id', (req,res) => {
+    db.coffee.findOne({
+        where: {id: req.params.id}
+    }).then((coffeeDescription) => {
+        res.render('coffee/coffeeInfo', {coffeeDescription})
+    }).catch (error => {
+        console.log(error)
+    })
+})
+
 module.exports = router
