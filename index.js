@@ -17,7 +17,7 @@ app.use(express.urlencoded({extended:false}))
 
 // session middleware
 app.use(session({
-    secret: process.SUPER_SECRET_SECRET,
+    secret: process.env.SUPER_SECRET_SECRET,
     resave: false,
     saveUninitialized: true
 }))
@@ -51,6 +51,7 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
+app.use('/coffees', require('./controllers/coffeeTypes'))
 
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)

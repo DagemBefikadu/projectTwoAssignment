@@ -1,0 +1,24 @@
+<h1>Coffee Types </h1>
+<h4>Read about the different drinks and where there from</h4>
+
+<% coffeeTypes.forEach(function(coffee) {%>
+    <div>
+        <h3>
+            <%= coffee.name %>    
+        </h3>
+        <h4> Description:
+            <h6>
+                <%= coffee.description %>
+            </h6>
+        </h4>
+        <h5> Process:
+            <h6>
+                <%= coffee.process %>
+            </h6>
+        </h5>
+        <h4> Origin:
+               <small> <%= coffee.origin %></small>
+        </h4>
+    </div>
+    
+<% }) %> 
