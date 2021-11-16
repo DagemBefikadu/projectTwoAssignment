@@ -51,6 +51,8 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
+
+
 app.use('/coffees', require('./controllers/coffeeTypes'))
 
 app.listen(3000, ()=>{
