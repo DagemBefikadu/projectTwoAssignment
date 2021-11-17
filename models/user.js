@@ -1,9 +1,7 @@
-'use strict';
-const bcrypt = require('bcrypt')
+"use strict";
+const bcrypt = require("bcrypt");
 
-const {
-  Model
-} = require('sequelize');
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -13,53 +11,55 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.belongsToMany(models.coffee, {through: 'userCoffee'})
+      models.user.belongsToMany(models.coffee, { through: "userCoffee" });
     }
-  };
-  user.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: {
-          args: [2, 25],
-          msg: 'Name must be 2-25 characters long.'
-        }
-      }
+  }
+  user.init(
+    {
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [2, 25],
+            msg: "Name must be 2-25 characters long.",
+          },
+        },
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: {
+            args: true,
+            msg: "Please enter a valid email address.",
+          },
+        },
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: {
+            args: [8, 99],
+            msg: "Password must be between 8 and 99 characters.",
+          },
+        },
+      },
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: {
-          args: true,
-          msg: 'Please enter a valid email address.'
-        }
-      }
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: {
-          args:[8,99],
-          msg: 'Password must be between 8 and 99 characters.'
-        }
-      }
+    {
+      sequelize,
+      modelName: "user",
     }
-  }, {
-    sequelize,
-    modelName: 'user',
-  });
+  );
 
-  user.addHook('beforeCreate', async (pendingUser, options)=>{
-    await bcrypt.hash(pendingUser.password, 10)
-    .then(hashedPassword=>{
-      console.log(`${pendingUser.password} became ---> ${hashedPassword}`)
-      pendingUser.password = hashedPassword
-    })
-  })
+  user.addHook("beforeCreate", async (pendingUser, options) => {
+    await bcrypt.hash(pendingUser.password, 10).then((hashedPassword) => {
+      console.log(`${pendingUser.password} became ---> ${hashedPassword}`);
+      pendingUser.password = hashedPassword;
+    });
+  });
 
   // ALTERNATIVE TIMING OPTION FOR ABOVE HOOK
   // user.addHook('beforeCreate', (pendingUser, options)=>{
@@ -75,5 +75,4 @@ module.exports = (sequelize, DataTypes) => {
   // }
 
   return user;
-
 };

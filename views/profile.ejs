@@ -1,3 +1,10 @@
 <h2><%= currentUser.name %>'s Profile</h2>
 
-<h3><$</h3>
+
+<% coffee.forEach(function(coffeeFavorite) {%>
+    <div>
+        <h3>
+            <%= coffeeFavorite.name %>    
+        </h3>
+    </div>
+<% }) %> 

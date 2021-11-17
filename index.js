@@ -6,6 +6,9 @@ const session = require('express-session')
 const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
+const { get } = require('./controllers/auth')
+let db = require('./models')
+
 
 
 // views (ejs and layouts) set up
@@ -39,6 +42,7 @@ app.use((req, res, next) => {
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
+app.use('/coffees', require('./controllers/coffeeTypes'))
 
 
 // home route
@@ -47,13 +51,25 @@ app.get('/', (req, res)=>{
 })
 
 // profile route
-app.get('/profile', isLoggedIn, (req, res)=>{
-    res.render('profile')
+
+
+app.get('/profile', isLoggedIn, (req, res) => {
+    console.log('This should be the userId', res.locals.currentUser.id)
+    db.user.findOne({
+        where:{ id: res.locals.currentUser.id}
+    })
+    .then((coffee) => {
+        coffee.getCoffees()
+        .then(fav => res.render('profile', {coffee: fav})) 
+        console.log('This should be the favorited Coffee',coffee)
+    })
+    .catch (error => {
+        console.log(error)
+    })
 })
 
 
 
-app.use('/coffees', require('./controllers/coffeeTypes'))
 
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
