@@ -51,6 +51,7 @@ router.post('/:id',  (req,res) => {
 router.post('/:id/comments', (req,res) => {
     db.comment.create({
       userId: res.locals.currentUser.id,
+      name: req.body.name,
       coffeeId: req.params.id,
       content: req.body.content,
     })
