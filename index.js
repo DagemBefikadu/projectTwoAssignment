@@ -47,6 +47,8 @@ app.use(methodOverride('_method'));
 app.use('/auth', require('./controllers/auth'))
 app.use('/coffees', require('./controllers/coffeeTypes'))
 
+//Static folder
+app.use('/static', express.static('public'))
 
 // home route
 app.get('/', (req, res)=>{

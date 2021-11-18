@@ -1,4 +1,5 @@
 const express = require("express");
+const isLoggedIn = require("../middleware/isLoggedIn");
 const router = express.Router();
 let db = require("../models");
 const user = require("../models/user");
@@ -90,7 +91,7 @@ router.get("/edit/:id/comments", (req, res) => {
     );
 });
 
-//UPDATE A DINO
+//UPDATE A comments
 router.put("/edit/:id/comments", (req, res) => {
   db.comment
     .findOne({
@@ -126,12 +127,17 @@ router.put("/edit/:id/comments", (req, res) => {
 //     });
 // });
 
-router.delete("/:id/comments", (req, res) => {
+router.delete("/:id/comments", isLoggedIn,(req, res) => {
     //     console.log(req.body)
-    db.comment.destroy ({
-        where: {id: req.params.id}
+
+    db.comment.destroy({
+        where: {id: req.params.id,}
     })
-    .then(res.redirect(`/coffees/${req.params.id}`))
+    .then(numRowsDeleted=>{
+        console.log(numRowsDeleted)
+        res.redirect(`/coffees`)
+    })
+    
         // destroy returns 1 if something is deleted and 0 if nothing happens
         // console.log('You deleted:  ', deletedItem)
         

@@ -44,7 +44,7 @@
     <form method="GET" action="/coffees/edit/<%= coffeeDescription.id %>/comments">
       <button type="submit">Edit commment</button>
   </form>
-  <form action="/coffees/<%= coffeeDescription.id %>/comments/?_method=DELETE" method="POST">
+  <form action="/coffees/<%= comment.id %>/comments/?_method=DELETE" method="POST">
     <input type="submit" value="Delete">
 </form>
   <%}) %>

@@ -1,10 +1,15 @@
 <h2><%= currentUser.name %>'s Profile</h2>
 
-
-<% coffee.forEach(function(coffeeFavorite) {%>
-    <div>
-        <h3>
-            <%= coffeeFavorite.name %>    
-        </h3>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="width: 25rem">
+      <% coffee.forEach(function(coffeeFavorite) {%>
+      <div class="card-body">
+        <h5 class="card-title"><%= coffeeFavorite.name %></h5>
+        <img src="<%= coffeeFavorite.image %>" class="card-img-top" />
+        <a href="/coffees/<%= coffeeFavorite.id %>" class="btn btn-light">Return to Coffee Description </a>
+      </div>
+      <% }) %>
     </div>
-<% }) %> 
+  </div>
+</div>
