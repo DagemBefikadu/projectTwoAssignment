@@ -29,6 +29,7 @@
     <input type="text" name="name" value="<%= currentUser.name %>" >
     <label for="content">Comment:</label>
     <input type="text" name="content" >
+    <input hidden type="text" name="commentDelete">
     <input type="submit">
   </form>
 </div>
@@ -40,4 +41,10 @@
       <br>
       <small>-<%= comment.name %></small>
     </p>
+    <form method="GET" action="/coffees/edit/<%= coffeeDescription.id %>/comments">
+      <button type="submit">Edit commment</button>
+  </form>
+  <form action="/coffees/<%= coffeeDescription.id %>/comments/?_method=DELETE" method="POST">
+    <input type="submit" value="Delete">
+</form>
   <%}) %>

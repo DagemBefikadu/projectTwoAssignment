@@ -1,0 +1,9 @@
+<div>
+    <form method="POST" action="/coffees/edit/<%= commentId %>/comments/?_method=PUT">
+      <label hidden for="name">Your Name</label>
+      <input type="text" name="name" value="<%= currentUser.name %>" >
+      <label for="content"> Updated Comment:</label>
+      <input type="text" name="content" value="<%= newComment %>" >
+      <input type="submit">
+    </form>
+  </div>

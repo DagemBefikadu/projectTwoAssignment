@@ -8,6 +8,7 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const { get } = require('./controllers/auth')
 let db = require('./models')
+const methodOverride = require('method-override');
 
 
 
@@ -39,6 +40,8 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next()
 })
+//edit and delete middleware
+app.use(methodOverride('_method'));
 
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
