@@ -7,6 +7,9 @@
       <div class="card-body">
         <h5 class="card-title"><%= coffeeFavorite.name %></h5>
         <img src="<%= coffeeFavorite.image %>" class="card-img-top" />
+        <form action="/profile/<%= coffeeFavorite.id %>/?_method=DELETE" method="POST">
+          <input type="submit" value="Delete">
+      </form>
         <a href="/coffees/<%= coffeeFavorite.id %>" class="btn btn-light">Return to Coffee Description </a>
       </div>
       <% }) %>

@@ -73,7 +73,16 @@ app.get('/profile', isLoggedIn, (req, res) => {
     })
 })
 
-
+app.delete('/profile/:id', isLoggedIn, (req, res) => {
+    console.log(`This is the coffee id\n`, req.params.id)
+    db.userCoffee.destroy({
+        where: {id: req.params.id}
+    })
+    .then(faveCoffeeDeleted => {
+        console.log(`This coffee should be deleted\n`,faveCoffeeDeleted)
+        res.redirect('/profile')
+    })
+})
 
 
 app.listen(3000, ()=>{

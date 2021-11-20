@@ -112,20 +112,6 @@ router.put("/edit/:id/comments", (req, res) => {
     });
 });
 
-//Delete a comment
-// router.delete("/:id/comments", (req, res) => {
-//     console.log(req.body)
-//   db.comment.destroy({
-//       where:{
-//       userId: res.locals.currentUser.id,
-//       id: req.body.commentId
-//     }
-//     })
-//     .then(res.redirect(`/coffees/${req.params.id}`))
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
 
 router.delete("/:id/comments", isLoggedIn,(req, res) => {
     //     console.log(req.body)
