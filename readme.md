@@ -1,47 +1,10 @@
 #projectTwoAssignment
 
+My Coffee 
 
+My Coffee is a place where you can learn about all the different kinds of coffee around the world. Here you can find the name and origin of the coffee. If a specific coffee catches your interest,
+you can read about the process and how its made. Why stop there you can also add a specific coffee to your favorites so you can easily access them from one location. We also give you the ability to add comments under a specific coffee so other users can learn from you and each other. Maybe slip in some family secrets. 
+<br>
 
-
-  <h4> Description:
-            <h6>
-                <%= coffee.description %>
-            </h6>
-        </h4>
-        <h5> Process:
-            <h6>
-                <%= coffee.process %>
-            </h6>
-        </h5>
-        <h4> Origin:
-               <small> <%= coffee.origin %></small>
-        </h4>
-    </div>
-
-
-
-
-
-    
-
-
-app.get('/profile', (req,res) => {
-    db.userCoffee.findAll({
-        where:{ userId: res.locals.currentUser.id},
-        include: [db.coffee, db.user]
-    })
-    .then((coffeeFavs) => {
-        res.render('profile', {coffeeFavs: coffeeFavs})
-    })
-    .catch (error => {
-        console.log(error)
-    })
-})
-
-
-      models.userCoffee.hasMany(models.coffee)
-      models.userCoffee.belongsTo(models.user)
-
-            models.user.belongsToMany(models.coffee, { through: "userCoffee" });
-                  models.user.belongsToMany(models.coffee, { through: "userCoffee" });
-                  12345678
+Tech Stack
+<br>
