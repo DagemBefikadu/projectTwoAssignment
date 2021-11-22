@@ -30,4 +30,4 @@ Dependencies:
 
 _________________________________________________________________________________________________________________________________________________________________________________________________________
 
-/Users/coding/sei_pumpkin_smashers/Projects/projectTwoAssignment/public/img/pf-chim-036-nook-job119-06-g.jpeg
+public/img/pf-chim-036-nook-job119-06-g.jpeg
