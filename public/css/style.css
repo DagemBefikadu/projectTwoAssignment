@@ -13,10 +13,10 @@ a:visited {
 
   article {
     color: white;
-    margin-top: 250px;
+    margin-top: 185px;
     float: right;
-    padding: 40px;
-    width: 50%;
+    padding: 10px;
+    width: 35%;
     text-align:center;
-    height: 300px; /* only for demonstration, should be removed */
+
   }
