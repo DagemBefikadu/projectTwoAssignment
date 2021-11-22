@@ -39,3 +39,16 @@ RestFul Routes:
 ![RESTFULROUTES](Home page.png)
 
 _________________________________________________________________________________________________________________________________________________________________________________________________________
+
+MVP goals 
+     * Create data on different types of coffee
+     * User log in page
+     * Favorites coffee 
+     * Write post about how users make coffee
+
+     _________________________________________________________________________________________________________________________________________________________________________________________________________
+Stretch goals 
+     * Ability to search coffee shops
+     *Coffee of the week
+     *Highlight a small business coffee shop
+     *Blog of how people make there coffee 
