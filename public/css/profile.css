@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(255, 238, 219);
+}
+
+nav {
+    opacity: 0.6;
+}
+
+h2 {
+    margin: auto;
+    width: 25%;
+}
+
+a:visited {
+    color: brown;
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+.title {
+    text-align: center;
+    padding: 40px;
+    width: 90%;
+    text-align:center;
+}

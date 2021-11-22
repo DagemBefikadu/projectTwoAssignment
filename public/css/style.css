@@ -6,7 +6,17 @@ body {
 }
 
 a:visited {
-    color: brown;
+    color: black;
     background-color: transparent;
     text-decoration: none;
+  }
+
+  article {
+    color: white;
+    margin-top: 250px;
+    float: right;
+    padding: 40px;
+    width: 50%;
+    text-align:center;
+    height: 300px; /* only for demonstration, should be removed */
   }

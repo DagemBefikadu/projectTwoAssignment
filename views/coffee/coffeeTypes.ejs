@@ -1,15 +1,26 @@
+<div class="title">
 <h1>Coffee Types</h1>
-<h4>Read about the different drinks and where there from</h4>
+<small>Please sign in to read the description</small>
+</div>
+
 
 <% coffeeTypes.forEach(function(coffee) {%>
-<div class="row g-0 bg-light position-relative">
-    <div class="col-md-6 p-4 ps-md-0">
-        <h5 class="mt-0"><%= coffee.name %></h5>
-        <p><small>~<%= coffee.origin %> </small></p>
+  <div class="row ">  
+    <div class="col-md-6 offset-md-3">
+      <div class="card text-center" style="width: 45rem">
+      <img src="<%= coffee.image %>" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= coffee.name %></h5>
+        <p class="card-text">~<%= coffee.origin %> </p>
         <a href="/coffees/<%= coffee.id %> "> More Details </a>
+      </div>
     </div>
-    <div class="col-md-6 mb-md-0 p-md-4">
-      <img src="<%= coffee.image %>" class="w-100" alt="..." />
-    </div>
+  </div>
 </div>
 <% }) %>
+
+<link rel="stylesheet" href="/static/css/profile.css">
+
+

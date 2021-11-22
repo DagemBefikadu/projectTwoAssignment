@@ -30,7 +30,7 @@
     <label for="content">Comment:</label>
     <input type="text" name="content" >
     <input hidden type="text" name="commentDelete">
-    <input type="submit">
+    <input class="btn btn-light" type="submit">
   </form>
 </div>
 
@@ -42,9 +42,11 @@
       <small>-<%= comment.name %></small>
     </p>
     <form method="GET" action="/coffees/edit/<%= coffeeDescription.id %>/comments">
-      <button type="submit">Edit commment</button>
+      <button class="btn btn-warning" type="submit">Edit commment</button>
   </form>
   <form action="/coffees/<%= comment.id %>/comments/?_method=DELETE" method="POST">
-    <input type="submit" value="Delete">
+    <input class="btn btn-danger" type="submit" value="Delete">
 </form>
   <%}) %>
+
+  <link rel="stylesheet" href="/static/css/profile.css">

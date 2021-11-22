@@ -25,11 +25,11 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/coffees"><i class="fa fa-coffee fa-lg"></i></a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/auth/signup">Signup</a>
-                </li>
                 <li class="nav-item  ">
                   <a class="nav-link " href="/auth/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/signup">Signup</a>
                 </li>
               <% } else { %>
                 <li class="nav-item">
@@ -39,15 +39,16 @@
                   <a class="nav-link" href="/coffees"><i class="fa fa-coffee fa-lg"></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/auth/logout">Logout</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link"href="/profile">Profile</a>
                 </li>
-              <% } %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
               </ul>
             </div>
-            </div>
+          </div>
+          <h3><a href="/profile"><%= currentUser.name %></a></h3>
+          <% } %>
           </nav>
     </header>
     <%- include('partials/alerts') %>

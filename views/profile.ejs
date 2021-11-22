@@ -1,18 +1,23 @@
-<h2><%= currentUser.name %>'s Profile</h2>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card" style="width: 25rem">
-      <% coffee.forEach(function(coffeeFavorite) {%>
-      <div class="card-body">
-        <h5 class="card-title"><%= coffeeFavorite.name %></h5>
-        <img src="<%= coffeeFavorite.image %>" class="card-img-top" />
-        <form action="/profile/<%= coffeeFavorite.id %>/?_method=DELETE" method="POST">
-          <input type="submit" value="Delete">
-      </form>
-        <a href="/coffees/<%= coffeeFavorite.id %>" class="btn btn-light">Return to Coffee Description </a>
+
+
+  <div class="row ">
+    <div class="col-md-6 offset-md-3">
+      <div class="card text-center" style="width: 45rem">
+        <% coffee.forEach(function(coffeeFavorite) {%>
+        <div class="card-body">
+          <h5 class="card-title"><%= coffeeFavorite.name %></h5>
+          <img src="<%= coffeeFavorite.image %>" class="card-img-top" />
+          <a href="/coffees/<%= coffeeFavorite.id %>" class="btn btn-light"
+            >Return to Coffee Description
+          </a>
+        </div>
+        <br />
+        <% }) %>
       </div>
-      <% }) %>
     </div>
   </div>
-</div>
+  
+
+
+  <link rel="stylesheet" href="/static/css/profile.css">
