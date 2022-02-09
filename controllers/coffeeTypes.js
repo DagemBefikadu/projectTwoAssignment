@@ -125,7 +125,7 @@ router.delete("/:id/comments", isLoggedIn,(req, res) => {
     })
     
         // destroy returns 1 if something is deleted and 0 if nothing happens
-        // console.log('You deleted:  ', deletedItem)
+
         
     .catch(error => {
         console.log(error)
