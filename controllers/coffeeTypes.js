@@ -123,8 +123,6 @@ router.delete("/:id/comments", isLoggedIn,(req, res) => {
         console.log(numRowsDeleted)
         res.redirect(`/coffees`)
     })
-    
-        // destroy returns 1 if something is deleted and 0 if nothing happens
 
         
     .catch(error => {
