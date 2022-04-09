@@ -13,7 +13,7 @@ const methodOverride = require('method-override');
 
 
 // views (ejs and layouts) set up
-//Cant access CSS files from here 
+
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
